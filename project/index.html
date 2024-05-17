@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR.js示例</title>
+  <!-- 引用A-Frame库 -->
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.3.0/dist/aframe-master.min.js"></script>
+  <!-- 引用AR.js的A-Frame组件 -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+</head>
+<body style="margin : 0px; overflow: hidden;">
+  <!-- 加载器，在图像描述符加载完毕之前显示 -->
+  <div class="arjs-loader">
+    <div>加载中，请稍候...</div>
+  </div>
+  <!-- A-Frame场景 -->
+  <a-scene
+    vr-mode-ui="enabled: false;"  <!-- 禁用VR模式UI -->
+    renderer="logarithmicDepthBuffer: true; precision: medium;"  <!-- 设置渲染器属性 -->
+    embedded  <!-- 嵌入式场景 -->
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"  <!-- AR.js配置 -->
+  >
+    <!-- NFT图像追踪 -->
+    <a-nft
+      type="nft"
+      url=" https://yrt15942268996.github.io/my-ar-project/https://github.com/yrt15942268996/my-ar-project/tree/63417aa9620f1a9274aefbf21b2b6f91cd72d7dc/project/assets/images/your_image_pattern.patt"  <!-- 图像描述符URL -->
+      smooth="true"  <!-- 平滑渲染 -->
+      smoothCount="10"  <!-- 平滑帧数 -->
+      smoothTolerance=".01"  <!-- 平滑容差 -->
+      smoothThreshold="5"  <!-- 平滑阈值 -->
+    >
+      <!-- 加载3D模型 -->
+      <a-entity
+        gltf-model=" https://yrt15942268996.github.io/my-ar-project//https://github.com/yrt15942268996/my-ar-project/tree/63417aa9620f1a9274aefbf21b2b6f91cd72d7dc/project/assets/models/your_model.glb"  <!-- 模型URL -->
+        scale="5 5 5"  <!-- 模型缩放 -->
+        position="150 300 -100"  <!-- 模型位置 -->
+      >
+      </a-entity>
+    </a-nft>
+    <!-- 相机设置 -->
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
